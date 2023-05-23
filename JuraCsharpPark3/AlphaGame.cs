@@ -24,17 +24,21 @@ namespace JuraCsharpPark3
                     if ((cki.Modifiers & ConsoleModifiers.Control) != 0) Console.Write("CTL+");
                     Console.WriteLine(cki.Key.ToString());
 
+                    // Correct key pressed and move to next character
                     if (cki.Key.ToString() == c.ToString())
                     {
                         Console.WriteLine("Correct key pressed!!");
                         c++;
                     }
-                    else if (cki.Key == ConsoleKey.C)
+                    // Check for last key in series to win the game
+                    else if (cki.Key == ConsoleKey.Z)
                     {
                         Console.WriteLine("You did it well done!!");
+                        Console.WriteLine("Press Enter To Continue");
                     }
                     else
                     {
+                        // Wrong key pressed message
                         Console.WriteLine("You missed the right key!");
                         return;
                     }

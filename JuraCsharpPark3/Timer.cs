@@ -12,24 +12,19 @@ namespace JuraCsharpPark3
     {
         public int TimeElapsed { get; set; } = 0;
         public bool TimerStarted { get; set; } = true;
-        
+
         public Timer()
         {
             // Create timer instance
             System.Timers.Timer timer = new(interval: 1000);
+            timer.Elapsed += (sender, e) => HandleTimer();
+            timer.Start();
 
-            while (TimerStarted == true)
-            {
+            AlphaGame game = new AlphaGame();
 
-                timer.Elapsed += (sender, e) => HandleTimer();
-                timer.Start();
-                AlphaGame game = new AlphaGame();
-
-            }
 
             void HandleTimer()
             {
-
                 TimeElapsed++;
                 Console.WriteLine(TimeElapsed);
 
@@ -44,10 +39,13 @@ namespace JuraCsharpPark3
             {
                 Console.WriteLine("Out of Time!");
                 TimerStarted = false;
+                timer.Stop();
                 timer.Dispose();
+                Console.WriteLine("Press Enter To Continue");
+                
                 return;
             }
-            Console.WriteLine("SSSSSSS");
+
             return;
         }
     }

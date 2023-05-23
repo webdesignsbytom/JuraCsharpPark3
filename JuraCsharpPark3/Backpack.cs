@@ -20,6 +20,9 @@ namespace JuraCsharpPark3
             myBackpack.Add(3, new Item() { Name = "Pistol", Description = "Shoots a short range", Effect = 25 });
         
         }
+        // Add item to bag
+        // should pass in a item in next version
+        // increase occupied space count
         public void AddItem()
         {
             Console.WriteLine("Adding item to bag: ");
@@ -27,6 +30,9 @@ namespace JuraCsharpPark3
             OccupiedSpaces++;
         }
 
+        // When an item is used it must be deleted from the bag
+        // Check item exists and then remove
+        // Currently set to remove item at index 2 for ease
         public void RemoveItem(string searchTerm) 
         {
             // Console.WriteLine(string.Join(Environment.NewLine, myBackpack.ContainsValue("Cheese");
@@ -47,7 +53,7 @@ namespace JuraCsharpPark3
             Console.WriteLine("");
             LoopThroughBackpack(); 
         }
-
+        // Player can call this function to see all items in pack
         public void LoopThroughBackpack()
         {
             foreach (Item item in myBackpack.Values)
@@ -55,7 +61,7 @@ namespace JuraCsharpPark3
                 Console.WriteLine($"Item {item.Name} {item.Description} - Does {item.Effect}");
             }
         }
-
+        // See how many items you can fit in your pack
         public void GetCapacity()
         {
             Console.WriteLine("Backpack Capacity = " + Capacity);

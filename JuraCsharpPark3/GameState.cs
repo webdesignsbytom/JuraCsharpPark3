@@ -19,8 +19,8 @@ namespace JuraCsharpPark3
             Console.WriteLine("Welcome to 'JurraC# Park 3'");
 
             // Start Level one
-            //LevelOne levelOne = new LevelOne();
-            //levelOne.StartLevel(myguy);
+            LevelOne levelOne = new LevelOne();
+            levelOne.StartLevel(myguy);
 
             // Check to continue
             Console.WriteLine("Do you want to start Level Two? (y/n)");
